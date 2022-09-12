@@ -1,0 +1,26 @@
+CATMAN TEST FILE
+PATH=C:\CatmanProjects\Exp_Meth 2022\Data\Group5
+Version=catmanEasy university license
+Job name=Job1
+Data file with path=C:\CatmanProjects\Exp_Meth 2022\Data\Group5\V0_9#4.BIN
+Data file=V0_9#4.BIN
+File comment=
+Time zone=W. Europe Daylight Time (UTC+2:00)
+Operator=
+Department=
+Comment=
+Default sample rate=50 Hz
+Slow sample rate=5 Hz
+Fast sample rate=200 Hz
+Number of samples default sample rate=0
+Number of samples slow sample rate=0
+Number of samples fast sample rate=8552
+Saving mode=PROMPT
+Master/Slave mode=Yes
+Start mode=Manual
+Start time=2022-09-08 10:57:01
+Stop mode=Manual
+Stop time=2022-09-08 10:57:44
+catmanEasy/AP version=5.2.2.19
+Numerical precision=8 Byte Float
+DATAFILE=C:\CatmanProjects\Exp_Meth 2022\Data\Group5\V0_9#4.BIN
