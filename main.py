@@ -30,15 +30,71 @@ Cal_WP = Calibration_file(filename="cal_wp.BIN", relevant_channel="Wave",
 Cal_WP.plot_timeseries()
 Cal_WP.calibration()
 
-print(Cal_rtm.means)
+Tow_0_6_N1 = Towing_files(filename="V0_6_#1.BIN", starttimes=70.4, endtimes=92.0, title="V = 0.6 m/s - Run #1")
+Tow_0_6_N1.write_statistics()
+Tow_0_6_N1.plot_all_timeseries()
+Tow_0_6_N1.plot_section_timeseries(1.96)
 
-Tow_file = Towing_files(filename="V0_7_#1.BIN", starttimes=24, endtimes=42.4, title="V = 0.7 m/s - Run #1")
 
-Tow_file.plot_all_timeseries()
+Tow_0_7_N1 = Towing_files(filename="V0_7_#1.BIN", starttimes=24, endtimes=42.4, title="V = 0.7 m/s - Run #1")
+Tow_0_7_N1.write_statistics()
+Tow_0_7_N1.plot_all_timeseries()
+Tow_0_7_N1.plot_section_timeseries(1.96)
 
-Tow_file.write_statistics()
+Tow_0_8_N1 = Towing_files(filename="V0_8_#1.BIN", starttimes=19.8, endtimes=33.8, title="V = 0.8 m/s - Run #1")
+Tow_0_8_N1.write_statistics()
+Tow_0_8_N1.plot_all_timeseries()
+Tow_0_8_N1.plot_section_timeseries(1.96)
 
-Tow_file.plot_section_timeseries(1.96)
+Tow_0_9_N1 = Towing_files(filename="V0_9_#1.BIN", starttimes=15.0, endtimes=27.2, title="V = 0.9 m/s - Run #1")
 
-print(Tow_file.means)
-print(Tow_file.std_devs)
+Tow_0_9_N1.write_statistics()
+Tow_0_9_N1.plot_all_timeseries()
+Tow_0_9_N1.plot_section_timeseries(1.96)
+
+Tow_0_9_N2 = Towing_files(filename="V0_9#2.BIN", starttimes=17.0, endtimes=28.0, title="V = 0.9 m/s - Run #2")
+Tow_0_9_N2.write_statistics()
+Tow_0_9_N2.plot_all_timeseries()
+Tow_0_9_N2.plot_section_timeseries(1.96)
+
+Tow_0_9_N3 = Towing_files(filename="V0_9#3.BIN", starttimes=19.5, endtimes=29.9, title="V = 0.9 m/s - Run #3")
+Tow_0_9_N3.write_statistics()
+Tow_0_9_N3.plot_all_timeseries()
+Tow_0_9_N3.plot_section_timeseries(1.96)
+
+Tow_0_9_N4 = Towing_files(filename="V0_9#4.BIN", starttimes=21.0, endtimes=32.5, title="V = 0.9 m/s - Run #4")
+Tow_0_9_N4.write_statistics()
+Tow_0_9_N4.plot_all_timeseries()
+Tow_0_9_N4.plot_section_timeseries(1.96)
+
+Tow_0_9_N5 = Towing_files(filename="V0_9#5.BIN", starttimes=17.0, endtimes=28.5, title="V = 0.9 m/s - Run #5")
+Tow_0_9_N5.write_statistics()
+Tow_0_9_N5.plot_all_timeseries()
+Tow_0_9_N5.plot_section_timeseries(1.96)
+
+
+Tow_1_0_N1 = Towing_files(filename="V1_0_#1.BIN", starttimes=16.3, endtimes=26.2, title="V = 1.0 m/s - Run #1")
+Tow_1_0_N1.write_statistics()
+Tow_1_0_N1.plot_all_timeseries()
+Tow_1_0_N1.plot_section_timeseries(1.96)
+
+Tow_1_1_N1 = Towing_files(filename="V1_1_#1.BIN", starttimes=22, endtimes=30, title="V = 1.1 m/s - Run #1")
+Tow_1_1_N1.write_statistics()
+Tow_1_1_N1.plot_all_timeseries()
+Tow_1_1_N1.plot_section_timeseries(1.96)
+
+Tow_1_2_N1 = Towing_files(filename="V1_2#1.BIN", starttimes=18.5, endtimes=24.5, title="V = 1.2 m/s - Run #1")
+Tow_1_2_N1.write_statistics()
+Tow_1_2_N1.plot_all_timeseries()
+Tow_1_2_N1.plot_section_timeseries(1.96)
+
+Tow_1_3_N1 = Towing_files(filename="V1_3#1.BIN", starttimes=41.5, endtimes=46.2, title="V = 1.3 m/s - Run #1")
+Tow_1_3_N1.write_statistics()
+Tow_1_3_N1.plot_all_timeseries()
+Tow_1_3_N1.plot_section_timeseries(1.96)
+
+Tow_1_4_N1 = Towing_files(filename="V1_4#1.BIN", starttimes=18.0, endtimes=21.5, title="V = 1.4 m/s - Run #1")
+Tow_1_4_N1.write_statistics()
+Tow_1_4_N1.plot_all_timeseries()
+Tow_1_4_N1.plot_section_timeseries(1.96)
+

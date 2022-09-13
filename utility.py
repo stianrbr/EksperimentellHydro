@@ -98,7 +98,14 @@ class Towing_files:
         for i in range(1, self.measurements.numChannels):
             plt.plot(self.measurements.Channels[i].Time.data, self.measurements.Channels[i].data)
             plt.title(self.title+"\n"+self.measurements.Channels[i].Name+" measurement - Full section")
-            plt.tight_layout()
+            plt.xticks(np.arange(min(self.measurements.Channels[i].Time.data), max(self.measurements.Channels[i].Time.data) + 1, 5.0))
+            plt.xlabel("Time [s]")
+            plt.ylabel(self.measurements.Channels[i].unit)
+            if self.measurements.Channels[i].Name != "Wave":
+                plt.axvline(self.starttimes, ls="dotted", c="green", label="Cal. start")
+                plt.axvline(self.endtimes, ls="dotted", c="red", label="Cal. end")
+                plt.hlines(y=self.means[self.measurements.Channels[i].Name+" - Mean"], xmin=self.starttimes, xmax=self.endtimes, colors="red", label="Mean value \n ={} {}".format(round(self.means[self.measurements.Channels[i].Name+" - Mean"],2), self.measurements.Channels[i].unit))
+                plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)
             plt.savefig(towing_results+self.filename.replace(".BIN", "")+self.measurements.Channels[i].Name+"_full_measurement.png")
             plt.show()
 
@@ -106,10 +113,12 @@ class Towing_files:
         for i in range(1, self.measurements.numChannels):
             plt.plot(self.measurements.Channels[i].Time.data[int(self.starttimes*sampling_freq):int(self.endtimes*sampling_freq)], self.measurements.Channels[i].data[int(self.starttimes*sampling_freq):int(self.endtimes*sampling_freq)])
             plt.title(self.title+"\n"+self.measurements.Channels[i].Name+" measurement - Utilized section")
+            plt.xlabel("Time [s]")
+            plt.ylabel(self.measurements.Channels[i].unit)
             if self.measurements.Channels[i].Name != "Wave":
                 mean = np.mean(self.measurements.Channels[i].data[int(self.starttimes*sampling_freq):int(self.endtimes*sampling_freq)])
                 std_dev = np.std(self.measurements.Channels[i].data[int(self.starttimes*sampling_freq):int(self.endtimes*sampling_freq)], ddof=1)
-                plt.axhline(y=mean, label="Mean", c="red")
+                plt.axhline(y=mean, label="Mean value \n ={} {}".format(round(self.means[self.measurements.Channels[i].Name+" - Mean"],2), self.measurements.Channels[i].unit), c="red")
                 plt.axhline(y=mean+plim*std_dev, ls="dotted", c="green", label=r'{}$\cdot \sigma$'.format(plim))
                 plt.axhline(y=mean - plim * std_dev, ls="dotted", c="green")
                 plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)
