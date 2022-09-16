@@ -98,3 +98,13 @@ Tow_1_4_N1.write_statistics()
 Tow_1_4_N1.plot_all_timeseries()
 Tow_1_4_N1.plot_section_timeseries(1.96)
 
+"""
+To do list:
+* Create plot of C_RTM versus speed and Froude
+    * Add uncertainty bars
+    
+* Calculate residual resistance
+
+* 
+"""
+
