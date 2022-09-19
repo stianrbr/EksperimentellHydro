@@ -33,7 +33,10 @@ class Calibration_file:
             if self.measurements.Channels[i].Name == self.relevant_channel:
                 plt.plot(self.time, self.measurements.Channels[i].data)
                 plt.tight_layout()
-                plt.show()
+                if show_plots:
+                    plt.plot()
+                else:
+                    plt.close("all")
 
     def calibration(self):
         for i in range(1, self.measurements.numChannels):
@@ -59,7 +62,10 @@ class Calibration_file:
                 ax.set_ylabel("Voltage [V]")
                 plt.savefig(calibration_results+self.filename.replace(".BIN", "_")+self.measurements.Channels[i].Name+"_calibration.png")
                 plt.tight_layout()
-                plt.show()
+                if show_plots:
+                    plt.plot()
+                else:
+                    plt.close("all")
 
                 m, b = np.polyfit(np.around(np.array(self.means),4), np.around(np.array(self.known_values),4), 1)
                 # Rounding of data to match excel results used in lab
@@ -71,7 +77,10 @@ class Calibration_file:
                 plt.ylabel("Voltage [V]")
                 plt.annotate(text=r'Line: {} $\cdot$ x + {}'.format(round(m,3), round(b,3)), xy=(0.25, 0.5), xycoords='axes fraction', fontsize="large")
                 plt.savefig(calibration_results + self.filename.replace(".BIN", "") + self.measurements.Channels[i].Name + "_regression.png")
-                plt.show()
+                if show_plots:
+                    plt.plot()
+                else:
+                    plt.close("all")
 
                 with open(calibration_results+self.filename.replace(".BIN", ".txt"),"w") as f:
                     f.write("\n -------------------\n"+self.title + " - "+self.measurements.Channels[i].Name+"\n -------------------\n")
@@ -107,7 +116,10 @@ class Towing_files:
                 plt.hlines(y=self.means[self.measurements.Channels[i].Name+" - Mean"], xmin=self.starttimes, xmax=self.endtimes, colors="red", label="Mean value \n ={} {}".format(round(self.means[self.measurements.Channels[i].Name+" - Mean"],2), self.measurements.Channels[i].unit))
                 plt.legend(loc='upper right', bbox_to_anchor=(1.1, 1.05), fancybox=True, shadow=True)
             plt.savefig(towing_results+self.filename.replace(".BIN", "")+self.measurements.Channels[i].Name+"_full_measurement.png")
-            plt.show()
+            if show_plots:
+                plt.plot()
+            else:
+                plt.close("all")
 
     def plot_section_timeseries(self, plim):
         for i in range(1, self.measurements.numChannels):
@@ -125,7 +137,10 @@ class Towing_files:
             plt.tight_layout()
 
             plt.savefig(towing_results+self.filename.replace(".BIN", "")+self.measurements.Channels[i].Name+"_valid_section.png")
-            plt.show()
+            if show_plots:
+                plt.plot()
+            else:
+                plt.close("all")
     def write_statistics(self):
         with open(towing_results+self.filename.replace(".BIN", ".txt"),"w") as f:
             f.write("\n -------------------\n"+self.title+"\n -------------------\n")
@@ -463,21 +478,6 @@ def hollenbach(Vsvec, L, Lwl, Los, B, TF, TA, CB, S, Dp, NRud, NBrac, NBoss, NTh
         P_E_mean = R_T_mean * Vs  # [W]
         P_E_min = R_T_min * Vs  # [W]
 
-        print('***********************************************')
-        print(f'Vs = {Vs / 0.5144:3.1f} knots')
-        print('***********************************************')
-        print('Mean values')
-        print(f'CRh: {CR:0.3E}')
-        print(f'CF: {CFs:0.3E}')
-        print(f'CT: {C_Ts:0.3E}')
-        print(f'RT: {R_T_mean:0.3E}')
-        print('***********************************************')
-        print('Minimum values')
-        print(f'CRh: {CR_min:0.3E}')
-        print(f'CF: {CFs:0.3E}')
-        print(f'CT: {C_Ts_min:0.3E}')
-        print(f'RT: {R_T_min:0.3E}')
-        print('***********************************************')
 
         # Store results for plotting
         CFsvec[cc] = CFs
@@ -492,18 +492,36 @@ def hollenbach(Vsvec, L, Lwl, Los, B, TF, TA, CB, S, Dp, NRud, NBrac, NBoss, NTh
 
         cc += 1
 
-    # Plotting
-    plt.figure()
-    plt.plot(Vsvec * 3600 / 1852, R_T_meanvec / 1000, 'o-', label="mean")
-    plt.plot(Vsvec * 3600 / 1852, R_T_minvec / 1000, 's-', label="min")
-    ax = plt.gca()
-    ax.set(xlabel='Velocity [knots]', ylabel='Resistance [kN]',
-           title='Total Resistance, Hollenbach method')
-    plt.legend()
 
-    plt.show()
-
-    return np.array([Vsvec, R_T_meanvec, R_T_minvec, P_E_meanvec, P_E_minvec])
+    return np.array([Vsvec, R_T_meanvec, R_T_minvec, CRvec, CR_minvec])
 
 
+def Froude_number(U, g, L):
+    """
+    Calculate Froude number from velocity
+    :param U: Velocity
+    :param g: gravitational acc.
+    :param L: Length of ship
+    :return: Froude number
+    """
+    return U/np.sqrt(g*L)
 
+def C_TM(RTM, rho, U, S):
+    """
+    Non-dimensionalize towing resistance
+    :param RTM: Dimensional resistance
+    :param rho: Water density
+    :param U: Velocity
+    :param S: Wetted surface
+    :return: Non-dimensional resistance
+    """
+    return RTM/((1/2)*rho*(U**2)*S)
+
+def Rn(V, L, nu):
+    return V*L/nu
+def C_RM(C_TM, V, Cb, Lwl, T_Ap, T_Fp, B):
+    phi = Cb/Lwl * np.sqrt((T_Ap+T_Fp)*B)
+    k = 0.6*phi+145*phi**3.5  # MARINTEK form factor
+    C_FM = 0.075/(np.log10(Rn(V, Lwl, nu))-2)**2
+    C_R = C_TM-(1+k)*C_FM
+    return C_R
