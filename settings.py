@@ -4,12 +4,13 @@ import numpy as np
 sampling_freq = 200
 g = 9.80665
 rho = 1000  # kg/m^3
-nu = 0.0000010386 # m/s**2
+nu = 0.000001 # m/s**2
 
 path = "Group5\\"
 results = "Results\\"
 calibration_results = results+"Calibration\\"
 towing_results = results+"Towing\\"
+comparison = results+"Comparison\\"
 
 show_plots = False
 

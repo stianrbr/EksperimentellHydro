@@ -1,10 +1,13 @@
 ##
 import os
+
+import matplotlib.pyplot as plt
+
 from utility import *
 from matplotlib_visualization import*
 
 plt.style.use("seaborn")
-plt.rcParams["figure.figsize"] = (15, 5)
+plt.rcParams["figure.figsize"] = (15, 3)
 plot_scale(1, title=1.5)
 
 try:
@@ -32,6 +35,10 @@ Cal_WP = Calibration_file(filename="cal_wp.BIN", relevant_channel="Wave",
                            known_values=[0, 0.05, 0.1, 0.15, 0.2, 0.25], cal_unit="Elevation [m]", title="Calibration")
 Cal_WP.plot_timeseries()
 Cal_WP.calibration()
+
+
+plt.rcParams["figure.figsize"] = (15, 5)
+plot_scale(1, title=1.5)
 
 Tow_0_6_N1 = Towing_files(filename="V0_6_#1.BIN", starttimes=70.4, endtimes=92.0, title="V = 0.6 m/s - Run #1")
 Tow_0_6_N1.write_statistics()
@@ -220,70 +227,126 @@ mean_RTMs = np.array([Tow_0_6_N1_meanRTM, Tow_0_7_N1_meanRTM, Tow_0_8_N1_meanRTM
                         Tow_0_9_N3_meanRTM, Tow_0_9_N4_meanRTM, Tow_0_9_N5_meanRTM,
                         Tow_1_0_N1_meanRTM, Tow_1_1_N1_meanRTM, Tow_1_2_N1_meanRTM, Tow_1_3_N1_meanRTM, Tow_1_4_N1_meanRTM])
 
+
+stddev_RTMs = np.array([Tow_0_6_N1_stddevRTM, Tow_0_7_N1_stddevRTM, Tow_0_8_N1_stddevRTM, Tow_0_9_N1_stddevRTM, Tow_0_9_N2_stddevRTM,
+                        Tow_0_9_N3_stddevRTM, Tow_0_9_N4_stddevRTM, Tow_0_9_N5_stddevRTM,
+                        Tow_1_0_N1_stddevRTM, Tow_1_1_N1_stddevRTM, Tow_1_2_N1_stddevRTM, Tow_1_3_N1_stddevRTM, Tow_1_4_N1_stddevRTM])
+
 mean_SinkFPs = np.array([Tow_0_6_N1_meanSinkFP, Tow_0_7_N1_meanSinkFP, Tow_0_8_N1_meanSinkFP, Tow_0_9_N1_meanSinkFP,
                         Tow_1_0_N1_meanSinkFP, Tow_1_1_N1_meanSinkFP, Tow_1_2_N1_meanSinkFP, Tow_1_3_N1_meanSinkFP, Tow_1_4_N1_meanSinkFP])
 
 mean_SinkAPs = np.array([Tow_0_6_N1_meanSinkAP, Tow_0_7_N1_meanSinkAP, Tow_0_8_N1_meanSinkAP, Tow_0_9_N1_meanSinkAP,
                         Tow_1_0_N1_meanSinkAP, Tow_1_1_N1_meanSinkAP, Tow_1_2_N1_meanSinkAP, Tow_1_3_N1_meanSinkAP, Tow_1_4_N1_meanSinkAP])
 
+"""
+Plotting of results
+"""
+
 run_number = np.arange(1, 14)
 
 run_number_ticks = ["1", "2", "3", "4a", "4b", "4c", "4d", "4e", "5", "6", "7", "8", "9"]
+run_number_ticks_19 = ["1", "2", "3", "4a-e", "5", "6", "7", "8", "9"]
 
 ##
-# Comparison of velocities
+# Comparison of velocities, planned versus actual
 plt.plot(run_number, planned_speeds_repeated, ls="dotted", label="Planned")
 plt.scatter(run_number, mean_speeds, zorder=99, label="Mean measured")
 plt.errorbar(run_number, mean_speeds, yerr=stddev_speeds, fmt="none", label="Std.dev", zorder=100, c="red")
-plt.title("Planned vs measured velocity")
-plt.legend(loc='lower right', bbox_to_anchor=(1.1, 0.2), fancybox=True, shadow=True)
+plt.title("Planned vs measured velocity", fontsize=20)
+plt.legend(loc='lower right', bbox_to_anchor=(1.1, 0.2), fancybox=True, shadow=True, fontsize=16)
 plt.xticks(run_number,run_number_ticks)
+plt.xlabel("Run number", fontsize=18)
+plt.ylabel("Velocity [m/s]", fontsize=18)
+plt.savefig(comparison+"planned_vs_measured_speed.png")
 plt.show()
 
 ##
 # Plotting of dimensional resistance
 
-plt.scatter(mean_speeds, mean_RTMs)
-plt.title("Towing resistance versus towing velocity")
+fig, ax = plt.subplots()
+ax1 = ax.twiny()
+ax.scatter(mean_speeds, mean_RTMs,marker="x", c="blue", zorder=99)
+ax1.scatter(mean_speeds, mean_RTMs,marker="x", c="blue", zorder=99, label="Mean of measurement")
+ax1.errorbar(mean_speeds, mean_RTMs, yerr=stddev_RTMs, fmt="none", label="Std.dev of measurement osciallation", zorder=1, c="red")
+ax.fill_between(mean_speeds, mean_RTMs-stddev_RTMs, mean_RTMs+stddev_RTMs, color="red", alpha=0.1)
+ax.set_xlabel("Velocity [m/s]")
+ax.set_ylabel(r'R$_{TM}$ [N]')
+ax1.set_xticks(planned_speeds)
+ax1.set_xlim(ax.get_xlim())
+ax1.set_xticklabels(run_number_ticks_19)
+ax1.set_xlabel("Run number")
+fig.suptitle("Towing resistance versus towing velocity")
+plt.tight_layout()
+plt.legend(loc="upper left")
+plt.savefig(comparison+"Rtm_vs_velocity.png")
 plt.show()
 
 ##
 # Plotting of non-dimensional resistance
 
-plt.scatter(Froude_number(mean_speeds, g, L_wl_m), C_TM(mean_RTMs, rho, mean_speeds, S_m))
-plt.title("Towing resistance coefficient versus Froude numbers")
+fig, ax = plt.subplots()
+ax1 = ax.twiny()
+ax.scatter(Froude_number(mean_speeds, g, L_wl_m), C_TM(mean_RTMs, rho, mean_speeds, S_m),marker="x", c="blue", zorder=99)
+ax1.scatter(Froude_number(mean_speeds, g, L_wl_m), C_TM(mean_RTMs, rho, mean_speeds, S_m),marker="x", c="blue", zorder=99)
+#ax1.errorbar(Froude_number(mean_speeds, g, L_wl_m), C_TM(mean_RTMs, rho, mean_speeds, S_m), yerr=C_TM(stddev_RTMs, rho, mean_speeds, S_m), fmt="none", label="Std.dev of measurement osciallation", zorder=1, c="red")
+#ax.fill_between(Froude_number(mean_speeds, g, L_wl_m), C_TM(mean_RTMs-stddev_RTMs, rho, mean_speeds, S_m), C_TM(mean_RTMs+stddev_RTMs, rho, mean_speeds, S_m), color="red", alpha=0.1)
+ax.set_xlabel("Froude number [-]")
+ax.set_ylabel(r'C$_{TM}$ [-]')
+ax1.set_xticks(Froude_number(planned_speeds, g, L_wl_m))
+ax1.set_xlim(ax.get_xlim())
+ax1.set_xticklabels(run_number_ticks_19)
+ax1.set_xlabel("Run number")
+fig.suptitle("Towing resistance coefficient versus Froude numbers")
+plt.tight_layout()
+plt.savefig(comparison+"Ctm_vs_froude.png")
 plt.show()
 
 
 ##
 # Plotting of residual resistance
 
-plt.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m))
-plt.title("Residual resistance versus Froude numbers")
-plt.show()
-"""
-To do list:
-* Create plot of C_RTM versus speed and Froude
-    * Add uncertainty bars
-    
-* Calculate residual resistance
+fig, ax = plt.subplots()
+ax1 = ax.twiny()
+ax.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m),marker="x", c="red", zorder=99)
+ax1.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m),marker="x", c="red", zorder=99, label="Experimental")
+ax.plot(given_froude, given_hollenbach, marker="o", label="Hollenbach")
+ax.plot(given_froude, given_holtrop, marker="o", label="Holtrop")
 
-* 
-"""
+ax.set_xlabel("Froude number [-]")
+ax.set_ylabel(r'C$_{RM}$ [-]')
+ax1.set_xticks(Froude_number(planned_speeds, g, L_wl_m))
+ax1.set_xlim(ax.get_xlim())
+ax1.set_xticklabels(run_number_ticks_19)
+ax1.set_xlabel("Run number")
+fig.suptitle("Residual resistance coefficient versus Froude numbers")
+plt.tight_layout()
+ax.legend(loc="upper left")
+plt.legend(loc="center left")
+plt.savefig(comparison+"Crm_vs_froude.png")
+plt.show()
+
 
 ##
-print(planned_speeds)
-print(np.around(Froude_number(planned_speeds, g, L_wl_m),2))
-print(np.around(Rn(planned_speeds, L_wl_m, nu),3))
+# Plotting sinkage versus speed
 
+fig, ax = plt.subplots()
+ax1 = ax.twiny()
+ax.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m),marker="x", c="red", zorder=99)
+ax1.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m),marker="x", c="red", zorder=99, label="Experimental")
+ax.plot(given_froude, given_hollenbach, marker="o", label="Hollenbach")
+ax.plot(given_froude, given_holtrop, marker="o", label="Holtrop")
 
-##
-plt.ticklabel_format(axis="y", style="scientific")
-plt.plot(given_froude, given_holtrop, label="Holtrop")
-plt.plot(given_froude, given_hollenbach, label="Hollenbach")
-plt.scatter(Froude_number(mean_speeds, g, L_wl_m), C_RM(C_TM(mean_RTMs, rho, mean_speeds, S_m), mean_speeds, C_b_m, L_wl_m, T_m, T_m, B_m))
-plt.legend(loc="best")
-
-
-
+ax.set_xlabel("Froude number [-]")
+ax.set_ylabel(r'C$_{RM}$ [-]')
+ax1.set_xticks(Froude_number(planned_speeds, g, L_wl_m))
+ax1.set_xlim(ax.get_xlim())
+ax1.set_xticklabels(run_number_ticks_19)
+ax1.set_xlabel("Run number")
+fig.suptitle("Towing resistance coefficient versus Froude numbers")
+plt.tight_layout()
+ax.legend(loc="upper left")
+plt.legend(loc="center left")
+plt.savefig(comparison+"Crm_vs_froude.png")
 plt.show()
+
+
