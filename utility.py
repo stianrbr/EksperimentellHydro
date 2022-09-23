@@ -110,6 +110,7 @@ class Towing_files:
         self.endtimes = endtimes
         self.means = {}
         self.std_devs = {}
+        self.maxes = {}
         try:
             os.mkdir(towing_results)
         except FileExistsError:
@@ -170,6 +171,7 @@ class Towing_files:
                 f.write("Mean: {}\n".format(mean))
                 std_dev = np.std(data_section, ddof=1)
                 self.std_devs[self.measurements.Channels[i].Name+" - Std.dev"] = std_dev
+                self.maxes[self.measurements.Channels[i].Name+" - abs(max)"] = np.max(np.abs(data_section))
                 f.write("Std.dev: {}\n".format(std_dev))
                 f.write("\n -------------------\n")
 

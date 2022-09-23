@@ -48,6 +48,8 @@ Tow_0_6_N1_meanRTM = Tow_0_6_N1.means["Rtm - Mean"]
 Tow_0_6_N1_meanSpeed = Tow_0_6_N1.means["Speed - Mean"]
 Tow_0_6_N1_meanSinkFP = Tow_0_6_N1.means["Sink_FP - Mean"]
 Tow_0_6_N1_meanSinkAP = Tow_0_6_N1.means["Sink_AP - Mean"]
+Tow_0_6_N1_maxSinkFP = Tow_0_6_N1.maxes["Sink_FP - abs(max)"]
+Tow_0_6_N1_maxSinkAP = Tow_0_6_N1.maxes["Sink_AP - abs(max)"]
 Tow_0_6_N1_stddevRTM = Tow_0_6_N1.std_devs["Rtm - Std.dev"]
 Tow_0_6_N1_stddevSpeed = Tow_0_6_N1.std_devs["Speed - Std.dev"]
 Tow_0_6_N1_stddevSinkFP = Tow_0_6_N1.std_devs["Sink_FP - Std.dev"]
@@ -61,6 +63,8 @@ Tow_0_7_N1_meanRTM = Tow_0_7_N1.means["Rtm - Mean"]
 Tow_0_7_N1_meanSpeed = Tow_0_7_N1.means["Speed - Mean"]
 Tow_0_7_N1_meanSinkFP = Tow_0_7_N1.means["Sink_FP - Mean"]
 Tow_0_7_N1_meanSinkAP = Tow_0_7_N1.means["Sink_AP - Mean"]
+Tow_0_7_N1_maxSinkFP = Tow_0_7_N1.maxes["Sink_FP - abs(max)"]
+Tow_0_7_N1_maxSinkAP = Tow_0_7_N1.maxes["Sink_AP - abs(max)"]
 Tow_0_7_N1_stddevRTM = Tow_0_7_N1.std_devs["Rtm - Std.dev"]
 Tow_0_7_N1_stddevSpeed = Tow_0_7_N1.std_devs["Speed - Std.dev"]
 Tow_0_7_N1_stddevSinkFP = Tow_0_7_N1.std_devs["Sink_FP - Std.dev"]
@@ -74,6 +78,8 @@ Tow_0_8_N1_meanRTM = Tow_0_8_N1.means["Rtm - Mean"]
 Tow_0_8_N1_meanSpeed = Tow_0_8_N1.means["Speed - Mean"]
 Tow_0_8_N1_meanSinkFP = Tow_0_8_N1.means["Sink_FP - Mean"]
 Tow_0_8_N1_meanSinkAP = Tow_0_8_N1.means["Sink_AP - Mean"]
+Tow_0_8_N1_maxSinkFP = Tow_0_8_N1.maxes["Sink_FP - abs(max)"]
+Tow_0_8_N1_maxSinkAP = Tow_0_8_N1.maxes["Sink_AP - abs(max)"]
 Tow_0_8_N1_stddevRTM = Tow_0_8_N1.std_devs["Rtm - Std.dev"]
 Tow_0_8_N1_stddevSpeed = Tow_0_8_N1.std_devs["Speed - Std.dev"]
 Tow_0_8_N1_stddevSinkFP = Tow_0_8_N1.std_devs["Sink_FP - Std.dev"]
@@ -87,6 +93,8 @@ Tow_0_9_N1_meanRTM = Tow_0_9_N1.means["Rtm - Mean"]
 Tow_0_9_N1_meanSpeed = Tow_0_9_N1.means["Speed - Mean"]
 Tow_0_9_N1_meanSinkFP = Tow_0_9_N1.means["Sink_FP - Mean"]
 Tow_0_9_N1_meanSinkAP = Tow_0_9_N1.means["Sink_AP - Mean"]
+Tow_0_9_N1_maxSinkFP = Tow_0_9_N1.maxes["Sink_FP - abs(max)"]
+Tow_0_9_N1_maxSinkAP = Tow_0_9_N1.maxes["Sink_AP - abs(max)"]
 Tow_0_9_N1_stddevRTM = Tow_0_9_N1.std_devs["Rtm - Std.dev"]
 Tow_0_9_N1_stddevSpeed = Tow_0_9_N1.std_devs["Speed - Std.dev"]
 Tow_0_9_N1_stddevSinkFP = Tow_0_9_N1.std_devs["Sink_FP - Std.dev"]
@@ -100,6 +108,8 @@ Tow_0_9_N2_meanRTM = Tow_0_9_N2.means["Rtm - Mean"]
 Tow_0_9_N2_meanSpeed = Tow_0_9_N2.means["Speed - Mean"]
 Tow_0_9_N2_meanSinkFP = Tow_0_9_N2.means["Sink_FP - Mean"]
 Tow_0_9_N2_meanSinkAP = Tow_0_9_N2.means["Sink_AP - Mean"]
+Tow_0_9_N2_maxSinkFP = Tow_0_9_N2.maxes["Sink_FP - abs(max)"]
+Tow_0_9_N2_maxSinkAP = Tow_0_9_N2.maxes["Sink_AP - abs(max)"]
 Tow_0_9_N2_stddevRTM = Tow_0_9_N2.std_devs["Rtm - Std.dev"]
 Tow_0_9_N2_stddevSpeed = Tow_0_9_N2.std_devs["Speed - Std.dev"]
 Tow_0_9_N2_stddevSinkFP = Tow_0_9_N2.std_devs["Sink_FP - Std.dev"]
@@ -113,6 +123,8 @@ Tow_0_9_N3_meanRTM = Tow_0_9_N3.means["Rtm - Mean"]
 Tow_0_9_N3_meanSpeed = Tow_0_9_N3.means["Speed - Mean"]
 Tow_0_9_N3_meanSinkFP = Tow_0_9_N3.means["Sink_FP - Mean"]
 Tow_0_9_N3_meanSinkAP = Tow_0_9_N3.means["Sink_AP - Mean"]
+Tow_0_9_N3_maxSinkFP = Tow_0_9_N3.maxes["Sink_FP - abs(max)"]
+Tow_0_9_N3_maxSinkAP = Tow_0_9_N3.maxes["Sink_AP - abs(max)"]
 Tow_0_9_N3_stddevRTM = Tow_0_9_N3.std_devs["Rtm - Std.dev"]
 Tow_0_9_N3_stddevSpeed = Tow_0_9_N3.std_devs["Speed - Std.dev"]
 Tow_0_9_N3_stddevSinkFP = Tow_0_9_N3.std_devs["Sink_FP - Std.dev"]
@@ -126,6 +138,8 @@ Tow_0_9_N4_meanRTM = Tow_0_9_N4.means["Rtm - Mean"]
 Tow_0_9_N4_meanSpeed = Tow_0_9_N4.means["Speed - Mean"]
 Tow_0_9_N4_meanSinkFP = Tow_0_9_N4.means["Sink_FP - Mean"]
 Tow_0_9_N4_meanSinkAP = Tow_0_9_N4.means["Sink_AP - Mean"]
+Tow_0_9_N4_maxSinkFP = Tow_0_9_N4.maxes["Sink_FP - abs(max)"]
+Tow_0_9_N4_maxSinkAP = Tow_0_9_N4.maxes["Sink_AP - abs(max)"]
 Tow_0_9_N4_stddevRTM = Tow_0_9_N4.std_devs["Rtm - Std.dev"]
 Tow_0_9_N4_stddevSpeed = Tow_0_9_N4.std_devs["Speed - Std.dev"]
 Tow_0_9_N4_stddevSinkFP = Tow_0_9_N4.std_devs["Sink_FP - Std.dev"]
@@ -139,6 +153,8 @@ Tow_0_9_N5_meanRTM = Tow_0_9_N5.means["Rtm - Mean"]
 Tow_0_9_N5_meanSpeed = Tow_0_9_N5.means["Speed - Mean"]
 Tow_0_9_N5_meanSinkFP = Tow_0_9_N5.means["Sink_FP - Mean"]
 Tow_0_9_N5_meanSinkAP = Tow_0_9_N5.means["Sink_AP - Mean"]
+Tow_0_9_N5_maxSinkFP = Tow_0_9_N5.maxes["Sink_FP - abs(max)"]
+Tow_0_9_N5_maxSinkAP = Tow_0_9_N5.maxes["Sink_AP - abs(max)"]
 Tow_0_9_N5_stddevRTM = Tow_0_9_N5.std_devs["Rtm - Std.dev"]
 Tow_0_9_N5_stddevSpeed = Tow_0_9_N5.std_devs["Speed - Std.dev"]
 Tow_0_9_N5_stddevSinkFP = Tow_0_9_N5.std_devs["Sink_FP - Std.dev"]
@@ -153,6 +169,8 @@ Tow_1_0_N1_meanRTM = Tow_1_0_N1.means["Rtm - Mean"]
 Tow_1_0_N1_meanSpeed = Tow_1_0_N1.means["Speed - Mean"]
 Tow_1_0_N1_meanSinkFP = Tow_1_0_N1.means["Sink_FP - Mean"]
 Tow_1_0_N1_meanSinkAP = Tow_1_0_N1.means["Sink_AP - Mean"]
+Tow_1_0_N1_maxSinkFP = Tow_1_0_N1.maxes["Sink_FP - abs(max)"]
+Tow_1_0_N1_maxSinkAP = Tow_1_0_N1.maxes["Sink_AP - abs(max)"]
 Tow_1_0_N1_stddevRTM = Tow_1_0_N1.std_devs["Rtm - Std.dev"]
 Tow_1_0_N1_stddevSpeed = Tow_1_0_N1.std_devs["Speed - Std.dev"]
 Tow_1_0_N1_stddevSinkFP = Tow_1_0_N1.std_devs["Sink_FP - Std.dev"]
@@ -166,6 +184,8 @@ Tow_1_1_N1_meanRTM = Tow_1_1_N1.means["Rtm - Mean"]
 Tow_1_1_N1_meanSpeed = Tow_1_1_N1.means["Speed - Mean"]
 Tow_1_1_N1_meanSinkFP = Tow_1_1_N1.means["Sink_FP - Mean"]
 Tow_1_1_N1_meanSinkAP = Tow_1_1_N1.means["Sink_AP - Mean"]
+Tow_1_1_N1_maxSinkFP = Tow_1_1_N1.maxes["Sink_FP - abs(max)"]
+Tow_1_1_N1_maxSinkAP = Tow_1_1_N1.maxes["Sink_AP - abs(max)"]
 Tow_1_1_N1_stddevRTM = Tow_1_1_N1.std_devs["Rtm - Std.dev"]
 Tow_1_1_N1_stddevSpeed = Tow_1_1_N1.std_devs["Speed - Std.dev"]
 Tow_1_1_N1_stddevSinkFP = Tow_1_1_N1.std_devs["Sink_FP - Std.dev"]
@@ -179,6 +199,8 @@ Tow_1_2_N1_meanRTM = Tow_1_2_N1.means["Rtm - Mean"]
 Tow_1_2_N1_meanSpeed = Tow_1_2_N1.means["Speed - Mean"]
 Tow_1_2_N1_meanSinkFP = Tow_1_2_N1.means["Sink_FP - Mean"]
 Tow_1_2_N1_meanSinkAP = Tow_1_2_N1.means["Sink_AP - Mean"]
+Tow_1_2_N1_maxSinkFP = Tow_1_2_N1.maxes["Sink_FP - abs(max)"]
+Tow_1_2_N1_maxSinkAP = Tow_1_2_N1.maxes["Sink_AP - abs(max)"]
 Tow_1_2_N1_stddevRTM = Tow_1_2_N1.std_devs["Rtm - Std.dev"]
 Tow_1_2_N1_stddevSpeed = Tow_1_2_N1.std_devs["Speed - Std.dev"]
 Tow_1_2_N1_stddevSinkFP = Tow_1_2_N1.std_devs["Sink_FP - Std.dev"]
@@ -192,6 +214,8 @@ Tow_1_3_N1_meanRTM = Tow_1_3_N1.means["Rtm - Mean"]
 Tow_1_3_N1_meanSpeed = Tow_1_3_N1.means["Speed - Mean"]
 Tow_1_3_N1_meanSinkFP = Tow_1_3_N1.means["Sink_FP - Mean"]
 Tow_1_3_N1_meanSinkAP = Tow_1_3_N1.means["Sink_AP - Mean"]
+Tow_1_3_N1_maxSinkFP = Tow_1_3_N1.maxes["Sink_FP - abs(max)"]
+Tow_1_3_N1_maxSinkAP = Tow_1_3_N1.maxes["Sink_AP - abs(max)"]
 Tow_1_3_N1_stddevRTM = Tow_1_3_N1.std_devs["Rtm - Std.dev"]
 Tow_1_3_N1_stddevSpeed = Tow_1_3_N1.std_devs["Speed - Std.dev"]
 Tow_1_3_N1_stddevSinkFP = Tow_1_3_N1.std_devs["Sink_FP - Std.dev"]
@@ -205,6 +229,8 @@ Tow_1_4_N1_meanRTM = Tow_1_4_N1.means["Rtm - Mean"]
 Tow_1_4_N1_meanSpeed = Tow_1_4_N1.means["Speed - Mean"]
 Tow_1_4_N1_meanSinkFP = Tow_1_4_N1.means["Sink_FP - Mean"]
 Tow_1_4_N1_meanSinkAP = Tow_1_4_N1.means["Sink_AP - Mean"]
+Tow_1_4_N1_maxSinkFP = Tow_1_4_N1.maxes["Sink_FP - abs(max)"]
+Tow_1_4_N1_maxSinkAP = Tow_1_4_N1.maxes["Sink_AP - abs(max)"]
 Tow_1_4_N1_stddevRTM = Tow_1_4_N1.std_devs["Rtm - Std.dev"]
 Tow_1_4_N1_stddevSpeed = Tow_1_4_N1.std_devs["Speed - Std.dev"]
 Tow_1_4_N1_stddevSinkFP = Tow_1_4_N1.std_devs["Sink_FP - Std.dev"]
@@ -232,11 +258,20 @@ stddev_RTMs = np.array([Tow_0_6_N1_stddevRTM, Tow_0_7_N1_stddevRTM, Tow_0_8_N1_s
                         Tow_0_9_N3_stddevRTM, Tow_0_9_N4_stddevRTM, Tow_0_9_N5_stddevRTM,
                         Tow_1_0_N1_stddevRTM, Tow_1_1_N1_stddevRTM, Tow_1_2_N1_stddevRTM, Tow_1_3_N1_stddevRTM, Tow_1_4_N1_stddevRTM])
 
-mean_SinkFPs = np.array([Tow_0_6_N1_meanSinkFP, Tow_0_7_N1_meanSinkFP, Tow_0_8_N1_meanSinkFP, Tow_0_9_N1_meanSinkFP,
+mean_SinkFPs = np.array([Tow_0_6_N1_meanSinkFP, Tow_0_7_N1_meanSinkFP, Tow_0_8_N1_meanSinkFP, Tow_0_9_N1_meanSinkFP, Tow_0_9_N2_meanSinkFP, Tow_0_9_N3_meanSinkFP,Tow_0_9_N4_meanSinkFP,Tow_0_9_N5_meanSinkFP,
                         Tow_1_0_N1_meanSinkFP, Tow_1_1_N1_meanSinkFP, Tow_1_2_N1_meanSinkFP, Tow_1_3_N1_meanSinkFP, Tow_1_4_N1_meanSinkFP])
 
-mean_SinkAPs = np.array([Tow_0_6_N1_meanSinkAP, Tow_0_7_N1_meanSinkAP, Tow_0_8_N1_meanSinkAP, Tow_0_9_N1_meanSinkAP,
+mean_SinkAPs = np.array([Tow_0_6_N1_meanSinkAP, Tow_0_7_N1_meanSinkAP, Tow_0_8_N1_meanSinkAP, Tow_0_9_N1_meanSinkAP, Tow_0_9_N2_meanSinkAP,Tow_0_9_N3_meanSinkAP,Tow_0_9_N4_meanSinkAP,Tow_0_9_N5_meanSinkAP,
                         Tow_1_0_N1_meanSinkAP, Tow_1_1_N1_meanSinkAP, Tow_1_2_N1_meanSinkAP, Tow_1_3_N1_meanSinkAP, Tow_1_4_N1_meanSinkAP])
+
+max_SinkFPs = np.array([Tow_0_6_N1_maxSinkFP, Tow_0_7_N1_maxSinkFP, Tow_0_8_N1_maxSinkFP, Tow_0_9_N1_maxSinkFP, Tow_0_9_N2_maxSinkFP, Tow_0_9_N3_maxSinkFP,Tow_0_9_N4_maxSinkFP,Tow_0_9_N5_maxSinkFP,
+                        Tow_1_0_N1_maxSinkFP, Tow_1_1_N1_maxSinkFP, Tow_1_2_N1_maxSinkFP, Tow_1_3_N1_maxSinkFP, Tow_1_4_N1_maxSinkFP])
+
+max_SinkAPs = np.array([Tow_0_6_N1_maxSinkAP, Tow_0_7_N1_maxSinkAP, Tow_0_8_N1_maxSinkAP, Tow_0_9_N1_maxSinkAP, Tow_0_9_N2_maxSinkAP,Tow_0_9_N3_maxSinkAP,Tow_0_9_N4_maxSinkAP,Tow_0_9_N5_maxSinkAP,
+                        Tow_1_0_N1_maxSinkAP, Tow_1_1_N1_maxSinkAP, Tow_1_2_N1_maxSinkAP, Tow_1_3_N1_maxSinkAP, Tow_1_4_N1_maxSinkAP])
+
+
+
 
 """
 Plotting of results
@@ -349,4 +384,27 @@ plt.legend(loc="center left")
 plt.savefig(comparison+"Crm_vs_froude.png")
 plt.show()
 
+##
+#Plotting of the sinkage at both perpendicular
 
+fig, ax = plt.subplots()
+ax1 = ax.twiny()
+ax.scatter(mean_speeds, mean_SinkAPs, marker="x", color="blue")
+ax1.scatter(mean_speeds, mean_SinkAPs, marker="x", label="Sinkage AP - mean", color="blue")
+ax.scatter(mean_speeds, mean_SinkFPs, marker="o", color="green")
+ax1.scatter(mean_speeds, mean_SinkFPs, marker="o", label="Sinkage FP - mean", color="blue")
+ax.scatter(mean_speeds, max_SinkAPs, marker="x", color="blue")
+ax1.scatter(mean_speeds, max_SinkAPs, marker="x", label="Sinkage AP - max", color="red")
+ax.scatter(mean_speeds, max_SinkFPs, marker="o", color="green")
+ax1.scatter(mean_speeds, max_SinkFPs, marker="o", label="Sinkage FP - max", color="red")
+ax.set_xlabel("Velocity [m/s]")
+ax.set_ylabel(r'Sinkage [m]')
+ax1.set_xlim(ax.get_xlim())
+ax1.set_xticklabels(run_number_ticks_19)
+ax1.set_xlabel("Run number")
+fig.suptitle("Sinkage vs. towing velocity")
+plt.tight_layout()
+ax.legend(loc="upper left")
+plt.legend(loc="center left")
+plt.savefig(comparison+"Sink_vs_velocity.png")
+plt.show()
